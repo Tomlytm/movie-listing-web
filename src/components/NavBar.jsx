@@ -3,8 +3,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { MdCancel } from "react-icons/md";
-export default function NavBar({  term, setTerm }) {
+export default function NavBar({  term, setTerm, toggleSideNav }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  
   return (
     <div className="container navbar d-lg-flex d-md-flex justify-content-between align-items-center py-3">
       <div className="d-lg-flex d-md-flex gap-5 align-items-center">
@@ -36,7 +37,7 @@ export default function NavBar({  term, setTerm }) {
           <div>Browse by Languages</div>
         </div>
       </div>
-      <div className="d-lg-none me-2 border p-1 pointer">
+      <div className="d-lg-none me-2 border p-1 pointer" onClick={toggleSideNav}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="26"
@@ -52,7 +53,7 @@ export default function NavBar({  term, setTerm }) {
         </svg>
       </div>
 
-      <div className="d-lg-flex d-none gap-4 align-items-center">
+      <div className="d-lg-flex d-none gap-4 align-items-center" >
         {!isExpanded ? (
           <div
             className="d-lg-block d-none pointer"

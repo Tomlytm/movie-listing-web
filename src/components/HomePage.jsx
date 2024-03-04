@@ -8,6 +8,7 @@ import {
   findMovie
 } from "../services/movieApi";
 import Hero from "./Hero";
+import { MdCancel } from "react-icons/md";
 import Skeleton from "./SkeletonLoader";
 import { Link } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [seriesMovies, setSeriesMovies] = useState([]);
   const [term, setTerm] = useState("");
+  const [isExpanded, setIsExpanded] = useState(false);
   const [searched, setSearched]= useState([])
   const updateTerm = (newTerm) => {
     setTerm(newTerm);
@@ -61,13 +63,61 @@ const HomePage = () => {
       fetchData(term, 1);
     }
   }, [term])
-  
+  useEffect(() => {
+    if (isExpanded) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isExpanded]);
+
+  const toggleSideNav = () => {
+    setIsExpanded(!isExpanded);
+    console.log('clicked');
+  };
   return (
     <div  style={{backgroundColor: "#111111"}}>
  <div className=" text-white" style={{background: term.length >= 1 ?"url('/assets/images/flix3.jpg')" : "", height:'100%'}}>
       <div style={{ position: 'relative', zIndex: 2 }}>
+      {isExpanded && (
+        <div
+          className="overlayy"
+          onClick={toggleSideNav}
+        ></div>
+      )}
         
-      <Hero term={term} setTerm={updateTerm} />
+      <Hero term={term} setTerm={updateTerm} toggleSideNav={toggleSideNav}/>
+      <div className={`side-nav p-4 border border-2  ${isExpanded ? 'expanded d-block d-lg-none' : 'd-none'}`}>
+        <div className=" pointer text-end " >
+          <MdCancel
+                style={{fontSize: 30}}
+                onClick={() => {
+                  setIsExpanded(false);
+                }}
+              />
+        </div>
+        <div className="d-flex justify-content-end">
+          <ul>
+          <li> <Link
+            to={"/popularseries"}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <div>Tv Series</div>
+          </Link></li>
+          <li><Link
+            to={"/popularmovies"}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <div>Movies</div>
+          </Link></li>
+          <li>New & Popular</li>
+          <li>My List</li>
+          <li>Browse by Languages</li>
+        </ul>
+        </div>
+      
+        
+      </div>
       </div>
       {term.length < 1? <div style={{ marginTop: "-160px", position: 'relative', zIndex: 20, }} className="categories">
         <div className="container fw-bold mb-2 section-title ">

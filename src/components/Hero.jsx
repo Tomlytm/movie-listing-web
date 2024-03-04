@@ -2,14 +2,15 @@ import React from "react";
 import NavBar from "./NavBar";
 import Carousel from "react-bootstrap/Carousel";
 import { Link } from 'react-router-dom';
-export default function Hero({ term, setTerm }) {
+export default function Hero({ term, setTerm, toggleSideNav }) {
+  
   return (
     <div className="position-relative">
       <div
         style={{ background: "transparent", zIndex: 200 }}
         className="top-0 position-absolute w-100"
       >
-        <NavBar term={term} setTerm={setTerm} />
+        <NavBar term={term} setTerm={setTerm} toggleSideNav={toggleSideNav} />
       </div>
       {term.length < 1 ? (
         <Carousel fade controls={false} style={{ height: 650 }} interval={1500}>
