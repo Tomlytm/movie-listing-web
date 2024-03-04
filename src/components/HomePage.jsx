@@ -104,12 +104,14 @@ const HomePage = () => {
           <ul>
           <li> <Link
             to={"/popularseries"}
+            onClick={()=> setIsExpanded(false)}
             style={{ textDecoration: "none", color: "white" }}
           >
             <div>Tv Series</div>
           </Link></li>
           <li><Link
             to={"/popularmovies"}
+            onClick={()=> setIsExpanded(false)}
             style={{ textDecoration: "none", color: "white" }}
           >
             <div>Movies</div>

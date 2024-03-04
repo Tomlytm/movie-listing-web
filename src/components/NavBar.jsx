@@ -21,6 +21,7 @@ export default function NavBar({  term, setTerm, toggleSideNav }) {
         >
           {/* <div>Home</div> */}
           <Link
+          
             to={"/popularseries"}
             style={{ textDecoration: "none", color: "white" }}
           >
