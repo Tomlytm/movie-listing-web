@@ -1,13 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,400&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Cabin+Condensed);
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url('../public/assets/images/netflix.webp'); */
+  /* background-position: contain; */
+  /* background-repeat: no-repeat; */
+  
+  font-family: 'Montserrat', sans-serif !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.mont {
+  font-family: 'Montserrat', sans-serif !important;
+}
+.gothic-header {
+  font-family: 'Dela Gothic One', cursive !important;
+  font-size: 35px;
+/* font-family: 'Josefin Sans', sans-serif; */
+}
+.gothic-header1 {
+  font-family: 'Dela Gothic One', cursive !important;
+  font-size: 39px;
+/* font-family: 'Josefin Sans', sans-serif; */
+}
+.gothic-medium {
+  font-family: 'Dela Gothic One', cursive !important;
+  font-size: 14px;
+/* font-family: 'Josefin Sans', sans-serif; */
+}
+.gothic {
+  font-family: 'Dela Gothic One', cursive !important;
+  /* font-size: 16px; */
+/* font-family: 'Josefin Sans', sans-serif; */
+}
+.position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pointer {
+  cursor: pointer;
+}
+.navlinks div:hover {
+  color: lightgrey !important;
+  transition: .5s;
+}
+.btn:hover {
+  background-color: rgb(161, 161, 161) !important;
+}
+.hero-section {
+  width: 50% !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .hero-section {
+    width: 100% !important;
+  }
+}
+.moviecard .moviecard-item {
+  margin-bottom: 30px;
+}
+
+.moviecard #moviecard-flters {
+  padding: 0;
+  margin: 0 auto 15px auto;
+  list-style: none;
+  text-align: center;
+  border-radius: 50px;
+  padding: 2px 15px;
+}
+
+.moviecard #moviecard-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 16px 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 3px 10px 3px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px;
+}
+
+.moviecard #moviecard-flters li:hover,
+.moviecard #moviecard-flters li.filter-active {
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+}
+
+.moviecard #moviecard-flters li:last-child {
+  margin-right: 0;
+}
+
+.moviecard .moviecard-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.moviecard .moviecard-wrap::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.moviecard .moviecard-wrap .moviecard-info {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.moviecard .moviecard-wrap .moviecard-info::before {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  border-top: 3px solid #fff;
+  border-left: 3px solid #fff;
+  transition: all 0.5s ease 0s;
+  z-index: 9994;
+}
+
+.moviecard .moviecard-wrap .moviecard-info::after {
+  display: block;
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transition: all 0.5s ease 0s;
+  z-index: 9994;
+}
+
+.moviecard .moviecard-wrap .moviecard-info h4 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.moviecard .moviecard-wrap .moviecard-info p {
+  color: #ffffff;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+
+.moviecard .moviecard-wrap .moviecard-links {
+  text-align: center;
+  z-index: 4;
+}
+
+.moviecard .moviecard-wrap .moviecard-links a {
+  color: #000000;
+  /* margin-top: 18px !important; */
+  margin: 0 1px;
+  /* font-size: 28px; */
+  /* display: inline-block; */
+  transition: 0.3s;
+}
+
+.moviecard .moviecard-wrap .moviecard-links a:hover {
+  color: #8f652b;
+}
+
+.moviecard .moviecard-wrap:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.moviecard .moviecard-wrap:hover .moviecard-info {
+  opacity: 1;
+}
+
+.moviecard .moviecard-wrap:hover .moviecard-info::before {
+  top: 15px;
+  left: 15px;
+}
+
+.moviecard .moviecard-wrap:hover .moviecard-info::after {
+  bottom: 15px;
+  right: 15px;
+}
+
+/*--------------------------------------------------------------
+# moviecard Details
+--------------------------------------------------------------*/
+.moviecard-details {
+  padding-top: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.moviecard-details .container {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.moviecard-details .moviecard-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.moviecard-details .moviecard-info {
+  padding-top: 45px;
+}
+
+.moviecard-details .moviecard-info h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.moviecard-details .moviecard-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.moviecard-details .moviecard-info ul li+li {
+  margin-top: 10px;
+}
+
+.moviecard-details .moviecard-info p {
+  font-size: 15px;
+  padding: 15px 0 0 0;
+}
+.gradient-text1{
+  background: linear-gradient(45deg, #d4cd0c, #ffc371) !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.semibold {
+  font-weight: 500 !important;
+}
+.gradient-text{
+  background: linear-gradient(45deg, #ff5f6d, #ffc371) !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.gradient-text1{
+  background: linear-gradient(45deg, #7f7f7f, #ffc371) !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+@media (max-width: 992px) {
+  .moviecard-details .moviecard-info {
+    padding-top: 20px;
+  }
+}
+
+.moviecard-details .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.moviecard-details .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.moviecard-details .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #18d26e;
+}
+@keyframes skeletonAnimation {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.skeleton-item {
+  background-color: #f8f8f8; 
+  height: 250px; 
+  margin-bottom: 20px; 
+  animation: skeletonAnimation 2s infinite linear; /* Apply animation */
+  background: linear-gradient(90deg, #696969 25%, #333333 50%, #4e4e4e 75%);
+  background-size: 200% 100%;
+}
+
+.skeleton-item:last-child {
+  margin-right: 0;
+}
+
+/* .navbar {
+  position: sticky;
+  top: 0;
+} */.hot-picks-header {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* or any color you prefer */
+  /* text-align: center; */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  animation: pulse 1s infinite alternate; /* Define animation */
+}
+
+@media (max-width: 500px) {
+  .hot-picks-header {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .hp {
+    display: block !important;
+    width: 60% !important;
+    margin: 20px 0 !important;
+
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.categories {
+  z-index: 200000 !important;
+}
+.section-subtitle:hover {
+  letter-spacing: .5px;
+  transition: .3s;
+  /* display: flex; */
+
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.pagination-arrow {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-arrow:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination-arrow svg {
+  width: 14px;
+  height: 14px;
+  fill: #344054;
+}
+
+.pagination-arrow:hover svg {
+  fill: #2c3e50;
+}
+
+.pagination li {
+  margin: 0 .5rem; /* Add space between page numbers */
+}
+
+.pagination li:hover {
+  background:  linear-gradient(45deg, #ff5f6d, #ffc371) !important;
+  padding: 3px 8px;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 5px !important;
+  transition: .2s;
+}
+.pagination .active {
+  background:  linear-gradient(45deg, #ff5f6d, #ffc371) !important;
+  padding: 3px 8px;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 5px !important;
+}
+.gradient-background {
+  background: linear-gradient(to bottom, #191919, #3e2e2e);
+}
+.gradient-background1 {
+  background: linear-gradient(to bottom, #ffffff, #9c9c9c);
+}
+.overlay-container {
+  position: relative;
+  width: 100%; /* Or set your preferred width */
+  height: 120vh; /* Or set your preferred height */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity (last value) to control darkness */
+  z-index: 1; /* Ensure the overlay is on top of the background image */
+}
+
+.background-image {
+  background-size: cover; /* Adjust to your preference */
+  background-position: center; /* Adjust to your preference */
+  z-index: 0; /* Ensure the background image is behind the overlay */
+}
+.text-container {
+  position: absolute;
+  height: 100%;
+  top: 0; /* Adjust to position your text vertically */
+  left: 0; /* Adjust to position your text horizontally */
+  z-index: 2; /* Ensure the text is above the overlay */
+}
+
+.text {
+  color: white; /* Or your preferred text color */
+}
+.detail-img {
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-5%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slide-in {
+  animation: slideInLeft 2s;
+}
+@keyframes slideInLeftt {
+  from {
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slide-inn {
+  animation: slideInLeftt 1s;
+}
+.star-rating {
+  /* display: inline-block; */
+  animation: bounce 2s ;
+}
+input:focus {
+  outline: none;
 }
