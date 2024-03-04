@@ -126,8 +126,9 @@ export default function MovieDetails() {
                   </p>
                 </div>
 
-                <div className="detail-img fade-in">
+                <div className="">
                   <img
+                  className="detail-img fade-in"
                     src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                     style={{ height: 400 }}
                     alt=""

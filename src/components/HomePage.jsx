@@ -131,6 +131,7 @@ const HomePage = () => {
             </svg>
           </span>
         </div>
+        
         {popularMovies.length >= 1? <MovieList movies={popularMovies} />: <div className="container"><Skeleton /></div>}
         
 

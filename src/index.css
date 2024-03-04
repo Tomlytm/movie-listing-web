@@ -356,6 +356,9 @@ body {
     margin: 20px 0 !important;
 
   }
+  /* .img-fluid {
+    width: 70%;
+  } */
 }
 
 @keyframes pulse {

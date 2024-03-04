@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const MovieCard = (props) => {
   return (
-    <div className="col-lg-2 col-md-6 moviecard-item filter-app pointer">
+    <div className="col-lg-2 col-md-4 col-6 moviecard-item filter-app pointer">
       <div className="moviecard-wrap">
         <img
           src={`https://image.tmdb.org/t/p/original${props.imgPath}`}
