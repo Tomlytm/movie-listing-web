@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 import Carousel from "react-bootstrap/Carousel";
+import { Link } from 'react-router-dom';
 export default function Hero({ term, setTerm }) {
   return (
     <div className="position-relative">
@@ -32,6 +33,7 @@ export default function Hero({ term, setTerm }) {
                   the Movie Buff Community Today!
                 </p>
                 <div className="d-flex gap-3  slide-in">
+                  <Link to='/trending'>
                   <div className="btn bg-white py-2">
                     {" "}
                     <div className="d-flex align-items-center gap-2">
@@ -49,7 +51,7 @@ export default function Hero({ term, setTerm }) {
                       </svg>
                       Browse Movies
                     </div>
-                  </div>
+                  </div></Link>
                   <div className="btn text-white bg-secondary py-2 ">
                     {" "}
                     <div className="d-flex align-items-center gap-2">
@@ -89,6 +91,7 @@ export default function Hero({ term, setTerm }) {
                   the Movie Buff Community Today!
                 </p>
                 <div className="d-flex gap-3">
+                  <Link to='/trending'>
                   <div className="btn bg-white py-2">
                     {" "}
                     <div className="d-flex align-items-center gap-2">
@@ -106,7 +109,7 @@ export default function Hero({ term, setTerm }) {
                       </svg>
                       Browse Movies
                     </div>
-                  </div>
+                  </div></Link>
                   <div className="btn text-white bg-secondary py-2 ">
                     {" "}
                     <div className="d-flex align-items-center gap-2">
@@ -146,6 +149,7 @@ export default function Hero({ term, setTerm }) {
                   the Movie Buff Community Today!
                 </p>
                 <div className="d-flex gap-3">
+                  <Link to='/trending'>
                   <div className="btn bg-white py-2">
                     {" "}
                     <div className="d-flex align-items-center gap-2">
@@ -163,7 +167,7 @@ export default function Hero({ term, setTerm }) {
                       </svg>
                       Browse Movies
                     </div>
-                  </div>
+                  </div></Link>
                   <div className="btn text-white bg-secondary py-2 ">
                     {" "}
                     <div className="d-flex align-items-center gap-2">
