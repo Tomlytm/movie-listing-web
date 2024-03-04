@@ -78,16 +78,20 @@ const HomePage = () => {
   return (
     <div  style={{backgroundColor: "#111111"}}>
  <div className=" text-white" style={{background: term.length >= 1 ?"url('/assets/images/flix3.jpg')" : "", height:'100%'}}>
-      <div style={{ position: 'relative', zIndex: 2 }}>
+      <div style={{ position: 'relative', zIndex: 24444 }}>
       {isExpanded && (
         <div
+       
           className="overlayy"
           onClick={toggleSideNav}
         ></div>
       )}
+      <div >
+        
         
       <Hero term={term} setTerm={updateTerm} toggleSideNav={toggleSideNav}/>
-      <div className={`side-nav p-4 border border-2  ${isExpanded ? 'expanded d-block d-lg-none' : 'd-none'}`}>
+      </div>
+      <div className={`side-nav p-4   ${isExpanded ? 'expanded d-block d-lg-none' : 'd-none'}`}>
         <div className=" pointer text-end " >
           <MdCancel
                 style={{fontSize: 30}}
@@ -96,7 +100,7 @@ const HomePage = () => {
                 }}
               />
         </div>
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-end fade-inn" style={{ zIndex: 200,}}>
           <ul>
           <li> <Link
             to={"/popularseries"}
