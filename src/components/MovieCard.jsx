@@ -14,10 +14,8 @@ const MovieCard = (props) => {
           <p className="gradient-text mb-3 fw-bold gothic-medium">
             {props.name}
           </p>
-          {/* <p>{props.overview}</p> */}
           <div className="moviecard-links ">
-            <a
-              // href="moviecard-details.html"
+            <span
               data-gallery="moviecardDetailsGallery"
               data-glightbox="type: external"
               className="moviecard-details-lightbox p-2 rounded-3 gradient-background1 shadow"
@@ -37,7 +35,7 @@ const MovieCard = (props) => {
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                 </svg>
               </Link>
-            </a>
+            </span>
             <a
               href={`https://image.tmdb.org/t/p/original${props.imgPath}`}
               data-gallery="moviecardGallery"

@@ -1,38 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { fetchPopularMovies,
-    fetchTrendingMovies,
-    fetchSeriesMovies, } from "../services/movieApi";
+import { fetchSeriesMovies } from "../services/movieApi";
 import MovieList from "./MovieList";
 import Skeleton from "./SkeletonLoader2";
 import { Link } from "react-router-dom";
-import GlobalPaginate from "./GlobalPagination"
+import GlobalPaginate from "./GlobalPagination";
 export default function PopularSeries() {
   const [page, setPage] = useState(1);
-
-  const [totalPages, setTotalPages] = useState(0);
   const [seriesMovies, setSeriesMovies] = useState([]);
   useEffect(() => {
     const fetchSeries = async (page) => {
-        try {
-          const movies = await fetchSeriesMovies(page);
-          setSeriesMovies(movies.results);
-          setTotalPages(movies.total_pages);
-        } catch (error) {
-          console.log("error fetching popular movies", error);
-        }
-      };
-      fetchSeries(page);
-  }, [ page]);
-  
+      try {
+        const movies = await fetchSeriesMovies(page);
+        setSeriesMovies(movies.results);
+      } catch (error) {
+        console.log("error fetching popular movies", error);
+      }
+    };
+    fetchSeries(page);
+  }, [page]);
+
   const handlePageChange = (selectedPage) => {
     setPage(selectedPage + 1);
   };
 
   return (
-    <div className="gradient-background py-2 border border-2 border-danger" style={{minHeight:'100vh'}}>
+    <div
+      className="gradient-background py-2 border border-2 border-danger"
+      style={{ minHeight: "100vh" }}
+    >
       <div className="  px-5 pt-4  container">
         <div>
-        <div className="text-white">
+          <div className="text-white">
             <Link style={{ textDecoration: "none", color: "white" }} to="/">
               <div>
                 <svg
@@ -54,18 +52,23 @@ export default function PopularSeries() {
           </div>
           <div className="d-flex justify-content-end gap-5 container pt-5">
             <div className="hot-picks-header gothic-medium text-white">
-            For Binge-Worthy Series: Watch <span className="gradient-text"> Now!</span>{" "}
+              For Binge-Worthy Series: Watch{" "}
+              <span className="gradient-text"> Now!</span>{" "}
             </div>
-           
           </div>
         </div>
         {seriesMovies.length >= 1 ? (
-          <>  <MovieList movies={seriesMovies} />
-         <div className="pagination-container text-white w-100">  <GlobalPaginate  onPageChange={({ selected }) => handlePageChange(selected)}
-           pageCount={100}
-          /></div>
+          <>
+            {" "}
+            <MovieList movies={seriesMovies} />
+            <div className="pagination-container text-white w-100">
+              {" "}
+              <GlobalPaginate
+                onPageChange={({ selected }) => handlePageChange(selected)}
+                pageCount={100}
+              />
+            </div>
           </>
-        
         ) : (
           <div className="container">
             <Skeleton />

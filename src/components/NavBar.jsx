@@ -5,12 +5,9 @@ import { CiSearch } from "react-icons/ci";
 import { MdCancel } from "react-icons/md";
 export default function NavBar({  term, setTerm }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  // const [typed, setTyped] = useState(types);
-  // const [term, setTerm] = useState(terms);
   return (
     <div className="container navbar d-lg-flex d-md-flex justify-content-between align-items-center py-3">
       <div className="d-lg-flex d-md-flex gap-5 align-items-center">
-        {/* <img src="/assets/images/netflix.svg" alt="" /> */}
         <div
           className="dancing-script gradient-text fw-bold text-shadow ms-1"
           style={{ fontSize: 40 }}

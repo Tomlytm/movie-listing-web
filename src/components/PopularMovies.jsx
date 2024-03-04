@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReactPaginate from 'react-paginate';
 import { fetchPopularMovies } from "../services/movieApi";
 import MovieList from "./MovieList";
 import Skeleton from "./SkeletonLoader2";
@@ -8,14 +7,12 @@ import GlobalPaginate from "./GlobalPagination"
 export default function PopularMovies() {
   const [page, setPage] = useState(1);
   const [popularMovies, setPopularMovies] = useState([]);
-  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const fetchPopMovies = async (page) => {
       try {
         const movies = await fetchPopularMovies(page);
         setPopularMovies(movies.results);
-        setTotalPages(movies.total_pages);
       } catch (error) {
         console.log("error fetching popular movies", error);
       }
