@@ -301,12 +301,15 @@ body {
 }
 @media (max-width: 450px) {
 
-  .gothic-header {
-    font-size: 25px;
+   .hero-section .gothic-header {
+    font-size: 28px;
+    /* text-align: center; */
   }
-  .gothic-header1 {
-    font-size: 30px;
+ .hero-section .gothic-header1 {
+    font-size: 34px;
+    /* text-align: center; */
   }
+
 }
 
 .moviecard-details .swiper-pagination {
