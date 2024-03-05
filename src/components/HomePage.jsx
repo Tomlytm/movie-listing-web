@@ -63,12 +63,29 @@ const HomePage = () => {
       fetchData(term, 1);
     }
   }, [term])
+
   useEffect(() => {
-    if (isExpanded) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
+    console.log(isExpanded)
+    // const handleClickOutside = (event) => {
+    //   if (isExpanded && !event.target.closest('.side-nav')) {
+    //     setIsExpanded(false);
+    //   }
+    // };
+
+    const handleScroll = () => {
+      if (isExpanded) {
+        setIsExpanded(false);
+      }
+    };
+
+    // document.addEventListener('click', handleClickOutside);
+    document.addEventListener('scroll', handleScroll);
+
+    return () => {
+      // document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('scroll', handleScroll);
+    };
+    
   }, [isExpanded]);
 
   const toggleSideNav = () => {
@@ -104,14 +121,12 @@ const HomePage = () => {
           <ul>
           <li> <Link
             to={"/popularseries"}
-            onClick={()=> setIsExpanded(false)}
             style={{ textDecoration: "none", color: "white" }}
           >
             <div>Tv Series</div>
           </Link></li>
           <li><Link
             to={"/popularmovies"}
-            onClick={()=> setIsExpanded(false)}
             style={{ textDecoration: "none", color: "white" }}
           >
             <div>Movies</div>
