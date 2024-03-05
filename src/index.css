@@ -297,6 +297,16 @@ body {
   .moviecard-details .moviecard-info {
     padding-top: 20px;
   }
+
+}
+@media (max-width: 450px) {
+
+  .gothic-header {
+    font-size: 25px;
+  }
+  .gothic-header1 {
+    font-size: 30px;
+  }
 }
 
 .moviecard-details .swiper-pagination {
